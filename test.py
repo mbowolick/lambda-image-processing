@@ -10,7 +10,7 @@ def resize_image(image_path, resized_path):
       image.thumbnail(tuple(x / 2 for x in image.size))
       image.save(resized_path)
 
-def lambda_handler(event, context):
+def test(event, context):
   for record in event['Records']:
       # Fetch bucket and object key (absolute path) and image.
       source_bucket = record['s3']['bucket']['name']
@@ -27,4 +27,4 @@ def lambda_handler(event, context):
 if __name__ == "__main__":
     # __MAIN__ CONTROLLER TO RUN LAMBDA_HANDLER LOCALLY
     event = {"Records":[{"eventName":"ObjectCreated:Put","s3":{"bucket":{"name":"lambda-image-processing"},"object":{"key":"preprocessing/image.jpg"}}}]}
-    lambda_handler(event, '')
+    test(event, '')
