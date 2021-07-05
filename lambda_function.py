@@ -25,6 +25,6 @@ def lambda_handler(event, context):
       s3_client.upload_file(upload_path, UPLOAD_BUCKET, 'processed/{}'.format(image))
 
 if __name__ == "__main__":
-    # __MAIN__ CONTROLLER TO RUN LAMBDA_HANDLER LOCALLY
+    # __MAIN__ CONTROLLER TO RUN LAMBDA_HANDLER LOCALLY, ensure all variables are updated in line with your AWS account
     event = {"Records":[{"eventName":"ObjectCreated:Put","s3":{"bucket":{"name":"lambda-image-processing"},"object":{"key":"preprocessing/image.jpg"}}}]}
     lambda_handler(event, '')
