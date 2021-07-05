@@ -3,7 +3,7 @@ from urllib.parse import unquote_plus
 from PIL import Image
 
 s3_client = boto3.client('s3')
-UPLOAD_BUCKET = 'lambda-image-upload'
+UPLOAD_BUCKET = 'lambda-image-upload' # <-- Update with your own bucket id
 
 def resize_image(image_path, resized_path):
   with Image.open(image_path) as image:
